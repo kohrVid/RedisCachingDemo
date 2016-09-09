@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Snippets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% JSON.parse(@snippets).each do |snippet| %>
+      <tr>
+        <td><%= snippet["content"] %></td>
+        <td><%= link_to 'Show', snippet["show_path"] %></td>
+        <td><%= link_to 'Edit', snippet["edit_path"] %></td>
+        <td><%= link_to 'Destroy', snippet["show_path"], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Snippet', new_snippet_path %>
